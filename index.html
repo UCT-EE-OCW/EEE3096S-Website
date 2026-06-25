@@ -31,7 +31,7 @@
 						<li class="current"><a href="index.html">Home</a></li>
 						<li><a href="lectures.html">Lectures</a></li>
 						<li><a href="practicals.html">Practicals</a></li>
-						<li><a href="project.html">Project</a></li>
+						<li><a href="announcements.html">Announcements</a></li>
 						<li><a href="links.html">Links</a></li>
 						<li><a href="archive.html">Archive</a></li>
 					</ul>
@@ -61,6 +61,21 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Landing pad -->
+			<div class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<h3 style="font-size: 50px;"> Landing Pad:  </h3>	
+					</div>
+					<div class="row">
+						<div id="announcements-content">Loading...</div>	
+					</div>
+					<a href="announcements.html">View all announcements →</a>
+				</div>
+				
+			</div>
+			
 
 			<div class="wrapper">
 				<div class="container">
@@ -104,15 +119,6 @@
 				</div>
 			</div>
 
-			<!-- Gigantic Heading
-			<section class="wrapper style2">
-				<div class="container">
-					<header class="major">
-						<h2>Welcome to Embedded Systems II</h2>
-						<p>This website is dedicated to sharing info and resources related to the course.</p>
-					</header>
-				</div>
-			</section> -->
 
 			<div class="wrapper style1">
 				<div class="container">
@@ -220,5 +226,30 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Markdown parsing for announcements --> 
+		<script src="assets/js/marked.min.js"></script>
+
+		<!-- Script fetches and parses most recent 3 announcements from announcements.json manifest-->
+		<script>
+		fetch('resources/announcements.json')
+			.then(response => response.json())
+			.then(files => {
+			const recent = files.slice(-3).reverse();
+			return Promise.all(
+				recent.map(filename =>
+				fetch('resources/' + filename).then(r => r.text())
+				)
+			);
+			})
+			.then(texts => {
+			const html = texts.map(t => marked.parse(t)).join('<hr>');
+			document.getElementById('announcements-content').innerHTML = html;
+			})
+			.catch(() => {
+			document.getElementById('announcements-content').innerHTML = '<p>No announcements at this time.</p>';
+			});
+		</script>
+
 	</body>
 </html>

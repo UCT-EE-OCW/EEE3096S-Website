@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Project</title>
+		<title>Announcements</title>
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
@@ -31,7 +31,7 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="lectures.html">Lectures</a></li>
 						<li><a href="practicals.html">Practicals</a></li>
-						<li class="current"><a href="project.html">Project</a></li>
+						<li class="current"><a href="announcements.html">Announcements</a></li>
 						<li><a href="links.html">Links</a></li>
 						<li><a href="archive.html">Archive</a></li>
 					</ul>
@@ -40,45 +40,16 @@
 
 			<!-- Main -->
 			<section class="wrapper style1">
+				<div class="wrapper style1">
 				<div class="container">
-					<div id="content">
-						<!-- Content -->
-
-						<article>
-							<header>
-								<h2>Project</h2>
-							</header>
-
-							<!-- Box -->
-							<div class="wrapper style1" style="padding: 0.5em 0em 0.5em;">
-								<div class="container">
-									<div class="row">
-										<p>
-											A miniproject (Project A) is performed which involves
-											implementing a state machine and performing thorough
-											analysis of its design and performance. Part 2 concerns
-											digital system design, focusing on HDL coding and applying
-											these skills in lab practicals to simulation state
-											machines and other constructs that are useful in embedded
-											system design.
-										</p>
-										<p>
-											Students taking the course in a Computer Science programme
-											as required to complete an addition project, or more
-											ideally, larger project that builds upon Project A as a
-											starting point to extent it further; this project is
-											altogether approximately 4 credits of effort, and a
-											significant focus of the computer science project is to
-											incorporating network programming (i.e. prototyping a IoT
-											type sensor) in addition to thorough modelling using for
-											instance more detailed UML and statemachines.
-										</p>
-									</div>
-								</div>
-							</div>
-						</article>
+					<div class="row">
+						<h3 style="font-size: 50px;"> Announcements:  </h3>	
+					</div>
+					<div class="row">
+						<div id="announcements-content">Loading...</div>	
 					</div>
 				</div>
+			</div>
 			</section>
 
 			<!-- Footer -->
@@ -132,5 +103,29 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Markdown parsing for announcements --> 
+		<script src="assets/js/marked.min.js"></script>
+
+		<!-- Script fetches all announcements and parses the markdown to HTML-->
+		<script>
+		fetch('resources/announcements.json')
+			.then(response => response.json())
+			.then(files => {
+			const all = [...files].reverse();
+			return Promise.all(
+				all.map(filename =>
+				fetch('resources/' + filename).then(r => r.text())
+				)
+			);
+			})
+			.then(texts => {
+			const html = texts.map(t => marked.parse(t)).join('<hr>');
+			document.getElementById('announcements-content').innerHTML = html;
+			})
+			.catch(() => {
+			document.getElementById('announcements-content').innerHTML = '<p>No announcements at this time.</p>';
+			});
+		</script>
 	</body>
 </html>
