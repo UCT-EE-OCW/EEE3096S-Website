@@ -120,7 +120,11 @@
 			);
 			})
 			.then(texts => {
-			const html = texts.map(t => marked.parse(t)).join('<hr>');
+			const html = texts.map(t => 
+			'<div style="background: #f9f9f9; border-left: 4px solid #ccc; padding: 1em 1.5em; margin-bottom: 1.5em; max-width: 1000px; word-wrap: break-word; overflow-wrap: break-word;">' 
+			+ marked.parse(t) 
+			+ '</div>'
+			).join('');
 			document.getElementById('announcements-content').innerHTML = html;
 			})
 			.catch(() => {
