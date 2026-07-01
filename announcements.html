@@ -107,6 +107,10 @@
 		<!-- Markdown parsing for announcements --> 
 		<script src="assets/js/marked.min.js"></script>
 
+
+		<!--########################################################################################################################################
+		 Comment out from here if course is inactive -->
+
 		<!-- Script fetches all announcements and parses the markdown to HTML-->
 		<script>
 		fetch('resources/announcements.json')
@@ -131,5 +135,15 @@
 			document.getElementById('announcements-content').innerHTML = '<p>No announcements at this time.</p>';
 			});
 		</script>
+
+		<!--#####################################################################################################################################
+		 Comment out until here if inactive -->
+		
+		 <!--Uncomment if course is inactive:
+		<script>
+			document.getElementById('announcements-content').innerHTML = "Course currently inactive"
+		</script>
+		-->
+		
 	</body>
 </html>

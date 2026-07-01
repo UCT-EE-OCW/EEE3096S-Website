@@ -44,21 +44,63 @@
 					<div class="row">
 
 					<!-- Left panel: course info -->
-					<section class="col-7 col-12-narrower">
+					<section class="col-7 col-12-narrower" style="padding: 1.5em;">
 						<h3 style="font-size: 30px;">Course Information</h3>
 						<table>
-						Welcome to EEE3096S! This course aims to equip students with an understanding of concepts in the
-						wide field of embedded systems....... 
-						Please see the information below and in the Course Handout.
-						<h3 style="font-size: 20px;"> Staff and Communication </h3>
+						<h3 style="font-size: 20px;"> Introduction and Course Handout </h3>
+						Welcome to EEE3096S! This course aims to equip students with an understanding of concepts computer architecture and 
+						embedded systems. The course follows up on EEE2046S (Embedded Systems I), which provided introductory knowledge of
+						 digital electronics, microcontrollers, and C programming. 
+						 <br> <br>
+
+						 Embedded Systems II introduces students to microprocessor
+						  architecture fundamentals, memory technologies, embedded communication protocols, Assembly programming, state machines,
+						   and ADCs and DACs. The course additionally expands students’ knowledge of C programming for embedded systems,
+						    peripherals and digital components used in cyber-physical interfaces (such as timers, GPIO, RAM and EEPROM),
+						 and theories relating to signal processing and hardware-software interfaces.
+						 <br> <br>
 						
+						 <!--TODO:update link-->
+						Please see the information below and in the <a href="/resources/EEE3096S_2025 Course Handout.pdf">Course Handout </a>
+						<br> <br>
+						
+						<h3 style="font-size: 20px;"> Staff and Communication </h3>		
+<!-- #####################################################################################################################################
+						 Modify this section to update course staff-->
+
+						<h3 style="font-size: 18px; color:green"> Lecturers: </h3>
+						Prof. Simon Winberg (Head Lecturer)<br>
+						Email:<a href="mailto:simon.winberg@uct.ac.za"> simon.winberg@uct.ac.za </a> <br>
+						Office: Menzies 6.13  <br> <br>
+
+						Travimadox Webb (Co-Lecturer )<br>
+						Email:<a href="mailto:WBBTRA001@myuct.ac.za"> WBBTRA001@myuct.ac.za </a>
+						<br> <br>
+
+						<h3 style="font-size: 18px; color:green"> Teaching Assistant: </h3>
+						Maisha Magavha
+						Email:<a href="mailto:MGVMAI001@myuct.ac.za"> MGVMAI001@myuct.ac.za </a> <br> <br>
+						
+						<h3 style="font-size: 18px; color:green"> Tutors: </h3>
+						<!--TODO-->
+
+<!-- ######################################################################################################################################-->
 						</table>
 						
+						<h3 style="font-size: 20px;"> Preparatory Resources </h3>
+						To succeed in this course, you should be comfortable with the following tools and concepts. 
+						If you are rusty, please review the resources linked below preferably before the course begins.
+						<br><br>
+						<h3 style="font-size: 18px; color:green"> C Programming: </h3>
+						 You should be familiar with basic C concepts covered in EEE2046S, including pointers, memory
+						management, libraries and interfacing with peripherals. <br>
+						<a href="https://www.cprogramming.com/tutorial/c-tutorial.html"> C-Programming refresher </a> 
+
 					</section>
 
 					<!-- Right panel: announcements -->
 					<section class="col-5 col-12-narrower" style="background: #f0f0f0; padding: 1.5em;">
-						<h3 style="font-size: 30px; text-decoration: underline;">Landing Pad </h3>
+						<h3 style="font-size: 30px;">Landing Pad </h3>
 						<div id="announcements-content">Loading...</div>
 						<a href="announcements.html">View all announcements →</a>
 					</section>
@@ -122,7 +164,10 @@
 		<!-- Markdown parsing for announcements --> 
 		<script src="assets/js/marked.min.js"></script>
 
+<!--########################################################################################################################################
+		 Comment out from here if course is inactive -->
 		<!-- Script fetches and parses most recent 3 announcements from announcements.json manifest-->
+		
 		<script>
 		fetch('resources/announcements.json')
 			.then(response => response.json())
@@ -148,5 +193,14 @@
 			});
 		</script>
 
+<!--#####################################################################################################################################
+		 Comment out until here if inactive -->
+
+		<!--Uncomment if course is inactive:
+		<script>
+			document.getElementById('announcements-content').innerHTML = "Course currently inactive"
+		</script>
+		-->
+	
 	</body>
 </html>
