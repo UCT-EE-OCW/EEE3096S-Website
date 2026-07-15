@@ -13,6 +13,31 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.background-header {
+				position: relative;
+				isolation: isolate;
+				overflow: hidden;
+				border-radius: 6px;
+				padding: 1.2em 0.8em;
+				color: #fff;
+				text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+			}
+			.background-header::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: var(--bg-image);
+				background-size: cover;
+				background-position: center;
+				filter: blur(4px) brightness(0.8);
+				transform: scale(1.1);
+				z-index: -1;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -45,10 +70,10 @@
 
 					<!-- Left panel: course info -->
 					<section class="col-7 col-12-narrower" style="padding: 1.5em;">
-						<h3 style="font-size: 30px;">Course Information</h3>
+						<h3 class="background-header" style="font-size: 30px; --bg-image: url('resources/anne-nygard-cA8VTQeHU0c-unsplash.jpg');">Welcome to Embedded Systems II!</h3>
 						<table>
 						<h3 style="font-size: 20px;"> Introduction and Course Handout </h3>
-						Welcome to EEE3096S! This course aims to equip students with an understanding of concepts computer architecture and 
+						This course aims to equip students with an understanding of concepts computer architecture and 
 						embedded systems. The course follows up on EEE2046S (Embedded Systems I), which provided introductory knowledge of
 						 digital electronics, microcontrollers, and C programming. 
 						 <br> <br>
@@ -100,7 +125,7 @@
 
 					<!-- Right panel: announcements -->
 					<section class="col-5 col-12-narrower" style="background: #f0f0f0; padding: 1.5em;">
-						<h3 style="font-size: 30px;">Landing Pad </h3>
+						<h3 class="background-header" style="font-size: 30px; --bg-image: url('resources/robby-mccullough-7oiySGoHhZQ-unsplash.jpg');">Landing Pad </h3>
 						<div id="announcements-content">Loading...</div>
 						<a href="announcements.html">View all announcements →</a>
 					</section>

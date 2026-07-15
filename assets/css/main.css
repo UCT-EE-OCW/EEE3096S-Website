@@ -2132,11 +2132,25 @@ button.small,
 
 /* Header */
 #header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   text-align: center;
   padding: 2.5em 0 0 0;
-  background-image: url("images/trianglify-lowres.png");
-  background-repeat: repeat-x;
+}
+#header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../../resources/anne-nygard-6BCgNl-UY6A-unsplash.jpg");
+  background-size: cover;
   background-position: center;
+  filter: blur(4px) brightness(0.8);
+  transform: scale(1.1);
+  z-index: -1;
 }
 #header h1 {
   padding: 0 0 2em 0;
@@ -2146,6 +2160,8 @@ button.small,
   font-size: 1.5em;
   letter-spacing: -0.025em;
   border: 0;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 #nav {
