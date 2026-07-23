@@ -70,7 +70,7 @@
 
 					<!-- Left panel: course info -->
 					<section class="col-7 col-12-narrower" style="padding: 1.5em;">
-						<h3 class="background-header" style="font-size: 30px; --bg-image: url('resources/anne-nygard-cA8VTQeHU0c-unsplash.jpg');">Welcome to Embedded Systems II!</h3>
+						<h3 class="background-header" style="font-size: 30px; --bg-image: url('images/anne-nygard-cA8VTQeHU0c-unsplash.jpg');">Welcome to Embedded Systems II!</h3>
 						<table>
 						<h3 style="font-size: 20px;"> Introduction and Course Handout </h3>
 						This course aims to equip students with an understanding of concepts computer architecture and 
@@ -125,7 +125,7 @@
 
 					<!-- Right panel: announcements -->
 					<section class="col-5 col-12-narrower" style="background: #f0f0f0; padding: 1.5em;">
-						<h3 class="background-header" style="font-size: 30px; --bg-image: url('resources/robby-mccullough-7oiySGoHhZQ-unsplash.jpg');">Landing Pad </h3>
+						<h3 class="background-header" style="font-size: 30px; --bg-image: url('images/robby-mccullough-7oiySGoHhZQ-unsplash.jpg');">Landing Pad </h3>
 						<div id="announcements-content">Loading...</div>
 						<a href="announcements.html">View all announcements →</a>
 					</section>
@@ -194,13 +194,13 @@
 		<!-- Script fetches and parses most recent 3 announcements from announcements.json manifest-->
 		
 		<script>
-		fetch('resources/announcements.json')
+		fetch('announcements/announcements.json')
 			.then(response => response.json())
 			.then(files => {
 			const recent = files.slice(-3).reverse();
 			return Promise.all(
 				recent.map(filename =>
-				fetch('resources/' + filename).then(r => r.text())
+				fetch('announcements/' + filename).then(r => r.text())
 				)
 			);
 			})

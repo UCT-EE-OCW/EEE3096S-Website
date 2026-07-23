@@ -113,13 +113,13 @@
 
 		<!-- Script fetches all announcements and parses the markdown to HTML-->
 		<script>
-		fetch('resources/announcements.json')
+		fetch('announcements/announcements.json')
 			.then(response => response.json())
 			.then(files => {
 			const all = [...files].reverse();
 			return Promise.all(
 				all.map(filename =>
-				fetch('resources/' + filename).then(r => r.text())
+				fetch('announcements/' + filename).then(r => r.text())
 				)
 			);
 			})
