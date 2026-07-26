@@ -13,6 +13,92 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Lectures page — module / week layout, slide thumbnails, downloads */
+			.lecture-intro { margin-bottom: 2.5em; }
+
+			.lecture-module { margin: 0 0 3.5em 0; }
+			.module-head,
+			.week-head {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				gap: 0.5em 1em;
+			}
+			.module-head {
+				border-bottom: 2px solid #ddd;
+				padding-bottom: 0.4em;
+				margin-bottom: 1.25em;
+			}
+			.module-head h3 { margin: 0; }
+
+			.lecture-week { margin: 0 0 2.25em 0; }
+			.week-head { margin: 1.5em 0 0.75em 0; }
+			.week-head h4 { margin: 0; }
+
+			.lecture-week h5 {
+				margin: 1.25em 0 0.85em 0;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				font-size: 0.75em;
+				color: #888;
+			}
+
+			.download-all {
+				min-width: 0;
+				white-space: nowrap;
+			}
+			.download-all[disabled],
+			.download-all.is-busy { opacity: 0.85; cursor: default; }
+
+			/* Slide thumbnails */
+			.row.slides { margin-bottom: 0.5em; }
+			a.slide {
+				display: block;
+				text-decoration: none;
+				color: inherit;
+				margin-bottom: 1em;
+			}
+			a.slide canvas,
+			a.slide .slide-fallback {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 4 / 3;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				background: #fafafa;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+				transition: transform 0.15s ease, box-shadow 0.15s ease;
+			}
+			a.slide canvas.rendered {
+				aspect-ratio: auto;
+				background: #fff;
+			}
+			a.slide .slide-fallback {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #c0392b;
+			}
+			a.slide:hover canvas,
+			a.slide:hover .slide-fallback {
+				transform: translateY(-3px);
+				box-shadow: 0 7px 16px rgba(0, 0, 0, 0.18);
+			}
+			.slide-title {
+				display: block;
+				margin-top: 0.5em;
+				font-weight: 600;
+				font-size: 0.75em;
+				line-height: 1.3;
+			}
+
+			/* Additional resources */
+			ul.resources { margin: 0 0 0.5em 0; }
+			ul.resources li { margin-bottom: 0.4em; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -32,7 +118,7 @@
 						<li class="current"><a href="lectures.html">Lectures</a></li>
 						<li><a href="practicals.html">Practicals</a></li>
 						<li><a href="announcements.html">Announcements</a></li>
-						<li><a href="links.html">Links</a></li>
+						<li><a href="resources.html">Resources</a></li>
 						<li><a href="archive.html">Archive</a></li>
 					</ul>
 				</nav>
@@ -49,44 +135,325 @@
 								<h2>Lecture Materials</h2>
 							</header>
 
-							<section class="col-6 col-12-narrower">
-								<h3> Module 1: Embedded Systems </h3>
-								<div class="box post">
-									<a href="resources/EEE3096S-L01.pdf" class="image left"
-										><img src="resources/EEE3096S-L01.jpg" alt=""
-									/></a>
-									<div class="inner">
-										<h3>Lecture 1</h3>
-										<p>
-											Under development.
-										</p>
+							<p class="lecture-intro">
+								Course material is organised by module and then by week. Each
+								week lists the lecture slide decks (click a cover to download the
+								PDF) followed by any additional resources. Use the
+								<strong>Download</strong> buttons to grab all of a week's or
+								module's files as a single zip. Note that Week&nbsp;10 is a test
+								week and has no lecture content.
+							</p>
+
+							<!-- ============================ MODULE 1 ============================ -->
+							<section class="lecture-module">
+								<div class="module-head">
+									<h3>Module 1: Embedded Systems</h3>
+									<button class="button small icon solid fa-download download-all" data-scope="module" data-zipname="Module 1 - Embedded Systems">Download module</button>
+								</div>
+
+								<!-- Week 1 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 1</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 1 - Week 1">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L01-Intro%20to%20ES%20-%20Copy.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L01-Intro%20to%20ES%20-%20Copy.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L01 &mdash; Intro to Embedded Systems</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L1.5-RTES%20Hard%20and%20Soft%20Deadlines%20ES%20Optimization.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L1.5-RTES%20Hard%20and%20Soft%20Deadlines%20ES%20Optimization.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L1.5 &mdash; RTES: Hard &amp; Soft Deadlines &amp; ES Optimization</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L03%20Dev%20%26%20Exec_Environment.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L03%20Dev%20%26%20Exec_Environment.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L03 &mdash; Development &amp; Execution Environment</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/EEE3096S-L03%20Takehome%20Activity.pdf">L03 &mdash; Take-home Activity (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W1/P1_code.zip">P1 &mdash; Code (ZIP)</a></li>
+									</ul>
+								</div>
+
+								<!-- Week 2 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 2</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 1 - Week 2">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-L04%20Benchmarking%20-%20Copy.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-L04%20Benchmarking%20-%20Copy.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L04 &mdash; Benchmarking</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-L05%20Compiler%20Optimization%20-%20Copy.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-L05%20Compiler%20Optimization%20-%20Copy.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L05 &mdash; Compiler Optimization</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-P01%20GDB%20and%20Bash.pdf">P01 &mdash; GDB and Bash (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/EEE3096S-P2%20Makefiles.pdf">P2 &mdash; Makefiles (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/Table%20of%20Contents.html">Table of Contents (HTML)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/Timer%20(tictoc)%20-%20Copy.zip">Timer (tictoc) &mdash; Code (ZIP)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/measure_time_in_us.zip">measure_time_in_us &mdash; Code (ZIP)</a></li>
+										<li><a href="resources/lecture%20content/Module1%20-%20Embedded%20Systems/W2/timer_wrapping%20-%20Copy.c">timer_wrapping.c &mdash; Source</a></li>
+									</ul>
+								</div>
+							</section>
+
+							<!-- ============================ MODULE 2 ============================ -->
+							<section class="lecture-module">
+								<div class="module-head">
+									<h3>Module 2: Assembly &amp; C</h3>
+									<button class="button small icon solid fa-download download-all" data-scope="module" data-zipname="Module 2 - Assembly and C">Download module</button>
+								</div>
+
+								<!-- Week 3 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 3</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 2 - Week 3">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L06%20Intro%20to%20ARM%20RISC%20(pre_lect).pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L06%20Intro%20to%20ARM%20RISC%20(pre_lect).pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L06 &mdash; Intro to ARM RISC</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L07%20ARM%20AArch32%20Fundamenrals.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L07%20ARM%20AArch32%20Fundamenrals.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L07 &mdash; ARM AArch32 Fundamentals</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L08%20ARM%20Assembly%20Programming%201%20of%203.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/EEE3096S-L08%20ARM%20Assembly%20Programming%201%20of%203.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L08 &mdash; ARM Assembly Programming (1 of 3)</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/ARM%20Assembly%20-%20Quick%20Reference%20by%20common%20uses.pdf">ARM Assembly Quick Reference &mdash; by common uses (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/ARM%20Assembly%20-%20Quick%20Reference%20by%20instruction%20type.pdf">ARM Assembly Quick Reference &mdash; by instruction type (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/ARM%20Instructions%20-%20Summary.pdf">ARM Instructions &mdash; Summary (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/ARM_full_instruction_set_reference_guide_en.pdf">ARM &mdash; Full Instruction Set Reference Guide (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W3/L08_CODE.zip">L08 &mdash; Code (ZIP)</a></li>
+									</ul>
+								</div>
+
+								<!-- Weeks 4 & 5 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Weeks 4 &amp; 5</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 2 - Weeks 4 and 5">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L09%20ARM%20Assembly%20Programming%202%20of%203.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L09%20ARM%20Assembly%20Programming%202%20of%203.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L09 &mdash; ARM Assembly Programming (2 of 3)</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L10%20ARM%20Assembly%20Programming%203%20of%203.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L10%20ARM%20Assembly%20Programming%203%20of%203.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L10 &mdash; ARM Assembly Programming (3 of 3)</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L11a%20Memory%20Addressed%20IO.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L11a%20Memory%20Addressed%20IO.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L11a &mdash; Memory-Addressed I/O</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L12%20-%20Statemachines.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L12%20-%20Statemachines.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L12 &mdash; State Machines</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-L10%20Reading%20on%20Object%20Files.pdf">L10 &mdash; Reading on Object Files (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module2%20-%20Assembly%20%26%20C/W4%20%2B%20W5/EEE3096S-Prac2%20Planning.pdf">Prac 2 &mdash; Planning (PDF)</a></li>
+									</ul>
+								</div>
+							</section>
+
+							<!-- ============================ MODULE 3 ============================ -->
+							<section class="lecture-module">
+								<div class="module-head">
+									<h3>Module 3: Embedded Communications</h3>
+									<button class="button small icon solid fa-download download-all" data-scope="module" data-zipname="Module 3 - Embedded Communications">Download module</button>
+								</div>
+
+								<!-- Week 6 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 6</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 3 - Week 6">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W6/EEE3096S-L13a%20ES%20Communications%201.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W6/EEE3096S-L13a%20ES%20Communications%201.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L13a &mdash; ES Communications 1</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W6/EEE3096S-L13b%20ES%20Communications%202%20I2C.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W6/EEE3096S-L13b%20ES%20Communications%202%20I2C.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L13b &mdash; ES Communications 2 (I2C)</span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- Week 7 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 7</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 3 - Week 7">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W7/EEE3096S-L14%20ES%20Communications%203.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W7/EEE3096S-L14%20ES%20Communications%203.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L14 &mdash; ES Communications 3</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module3%20-%20Embedded%20Communications/W7/Understanding%20the%20I2C%20Bus.pdf">Understanding the I2C Bus (PDF)</a></li>
+									</ul>
+								</div>
+							</section>
+
+							<!-- ============================ MODULE 4 ============================ -->
+							<section class="lecture-module">
+								<div class="module-head">
+									<h3>Module 4: Sampling, Signal Generation, ADCs &amp; DACs</h3>
+									<button class="button small icon solid fa-download download-all" data-scope="module" data-zipname="Module 4 - Sampling Signal gen ADCs DACs">Download module</button>
+								</div>
+
+								<!-- Week 8 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 8</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 4 - Week 8">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W8/EEE3096S-L15%20Analogue%20Sig%20Gen%20and%20DAC%20-.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W8/EEE3096S-L15%20Analogue%20Sig%20Gen%20and%20DAC%20-.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L15 &mdash; Analogue Signal Generation &amp; DAC</span>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- Week 9 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 9</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 4 - Week 9">Download week</button>
+									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L16%20ADC%20Design%20(1of2).pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L16%20ADC%20Design%20(1of2).pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L16 &mdash; ADC Design (1 of 2)</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L16a%20Information%20Theory%20and%20Sampling.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L16a%20Information%20Theory%20and%20Sampling.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L16a &mdash; Information Theory &amp; Sampling</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L17%20ADC_Design%20(2of2).pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module4%20-%20Sampling,%20Signal%20gen,%20ADCs,%20DACs/W9/EEE3096S-L17%20ADC_Design%20(2of2).pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L17 &mdash; ADC Design (2 of 2)</span>
+											</a>
+										</div>
 									</div>
 								</div>
 							</section>
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="resources/EEE3096S-L02.pdf" class="image left"
-										><img src="resources/EEE3096S-L02-1.jpg" alt=""
-									/></a>
-									<div class="inner">
-										<h3>Lecture 2</h3>
-										<p>
-											Under development.
-										</p>
-									</div>
+
+							<!-- ============================ MODULE 5 ============================ -->
+							<section class="lecture-module">
+								<div class="module-head">
+									<h3>Module 5: Computer Architecture</h3>
+									<button class="button small icon solid fa-download download-all" data-scope="module" data-zipname="Module 5 - Computer Architecture">Download module</button>
 								</div>
-							</section>
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="resources/EEE3096S-TEMP.pdf" class="image left"
-										><img src="resources/EEE3096S-TEMP.jpg" alt=""
-									/></a>
-									<div class="inner">
-										<h3>Lecture 03</h3>
-										<p>
-											Under development.
-										</p>
+
+								<!-- Week 11 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 11</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 5 - Week 11">Download week</button>
 									</div>
+									<h5>Lecture slides</h5>
+									<div class="row slides">
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S-L18%20CPU%20Arch%20and%20Datapath%201.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S-L18%20CPU%20Arch%20and%20Datapath%201.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L18 &mdash; CPU Architecture &amp; Datapath 1</span>
+											</a>
+										</div>
+										<div class="col-2 col-3-narrow col-4-narrower col-6-mobile col-12-mobilep">
+											<a class="slide" href="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S-L19%20CPU%20Arch%20and%20Datapath%202.pdf" download>
+												<canvas data-pdf="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S-L19%20CPU%20Arch%20and%20Datapath%202.pdf" aria-hidden="true"></canvas>
+												<span class="slide-title">L19 &mdash; CPU Architecture &amp; Datapath 2</span>
+											</a>
+										</div>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S%20Lecture%2019%20-%20PCP%20Activity.pdf">Lecture 19 &mdash; PCP Activity (PDF)</a></li>
+										<li><a href="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W11/EEE3096S%20Lecture%2019%20-%20PCP%20Activity%20-%20Sample%20Solution.pdf">Lecture 19 &mdash; PCP Activity, Sample Solution (PDF)</a></li>
+									</ul>
+								</div>
+
+								<!-- Week 12 -->
+								<div class="lecture-week">
+									<div class="week-head">
+										<h4>Week 12</h4>
+										<button class="button small icon solid fa-download download-all" data-scope="week" data-zipname="Module 5 - Week 12">Download week</button>
+									</div>
+									<h5>Additional resources</h5>
+									<ul class="resources">
+										<li><a href="resources/lecture%20content/Module5%20-%20Computer%20Architecture/W12/EEE3096S%20Exam%20Study%20Advice%20-%20Copy%20(1).pdf">Exam Study Advice (PDF)</a></li>
+									</ul>
 								</div>
 							</section>
 						</article>
@@ -145,5 +512,10 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Lecture thumbnails (pdf.js) + download-all (JSZip) -->
+		<script src="assets/js/pdf.min.js"></script>
+		<script src="assets/js/jszip.min.js"></script>
+		<script src="assets/js/lectures.js"></script>
 	</body>
 </html>
