@@ -13,6 +13,37 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Practicals page — templates note + per-practical rows */
+			.practical-intro { margin-bottom: 2.5em; }
+			ul.templates { margin: 0.5em 0 0 0; }
+			ul.templates li { margin-bottom: 0.4em; }
+
+			/* One practical: photo left, description + download right */
+			.practical {
+				margin: 0 0 2.5em 0;
+				padding-bottom: 2.5em;
+				border-bottom: 1px solid #ddd;
+				align-items: center;
+			}
+			.practical:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+			}
+			.practical-photo {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				background: #fafafa;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+			}
+			.practical-body h3 { margin: 0 0 0.5em 0; }
+			.practical-body p { margin: 0 0 1.25em 0; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -50,10 +81,97 @@
 							</header>
 
 							<section>
-								<p>
-									This page is under development. Practical materials will be
-									posted here during the term.
+								<p class="practical-intro">
+									All course practicals and their relevant files are given on this page. See
+									 the <a href="resources.html">Resources</a> page for STM datasheets, HAL libraries, and STM32CubeIDE setup info.
+									 <br> <br>
+									Note that all practical reports must be completed in IEEE Conference format:
 								</p>
+								<ul class="templates">
+									<li><a href="resources/practicals/EEE3096S_REPORT_TEMPLATE.zip" download>LaTeX template</a></li>
+									<li><a href="resources/practicals/EEE3096S%20REPORT%20TEMPLATE.docx" download>Word template</a></li>
+								</ul>
+							</section>
+
+							<section>
+								<!-- Practical 1A -->
+								<div class="row practical">
+									<div class="col-4 col-12-mobile">
+										<img class="practical-photo" src="images/practicals/practical-1a.jpg" alt="Practical 1A" />
+									</div>
+									<div class="col-8 col-12-mobile practical-body">
+										<h3>Practical 1A</h3>
+										<p>From working with the STM32 previously, you should know how to interface with some basic board
+											components, namely the LEDs and pushbuttons. This practical will recap both of these briefly
+											and extend your knowledge of embedded systems to another major topic: timers. This practical also serves 
+											as an introduction to the use of STM32CubeIDE and the Hardware Abstraction Layer (HAL) libraries. These tools simplify the programming of your C
+											 development board by abstracting low-level hardware interactions</p>
+										<a class="button small icon solid fa-download" href="resources/practicals/EEE3096S_2025_Practical_1A.pdf" download>Practical manual</a>
+									</div>
+								</div>
+
+								<!-- Practical 1B -->
+								<div class="row practical">
+									<div class="col-4 col-12-mobile">
+										<img class="practical-photo" src="images/practicals/practical-1b.jpg" alt="Practical 1B" />
+									</div>
+									<div class="col-8 col-12-mobile practical-body">
+										<h3>Practical 1B</h3>
+										<p>In this practical you will explore benchmarking the computing performance of the STM32F0 using a well known benchmark called Mandelbrot set. 
+											After this practical, you should be comfortable profiling embedded code in terms of execution time and simple checksum.
+										</p>
+										<a class="button small icon solid fa-download" href="resources/practicals/EEE3096S_2025_Practical_1B.pdf" download>Practical manual</a>
+									</div>
+								</div>
+
+								<!-- Practical 2 -->
+								<div class="row practical">
+									<div class="col-4 col-12-mobile">
+										<img class="practical-photo" src="images/practicals/practical-2.jpg" alt="Practical 2" />
+									</div>
+									<div class="col-8 col-12-mobile practical-body">
+										<h3>Practical 2</h3>
+										<p>In this practical, you will be writing Assembly code to interface with your microcontroller board
+											to perform basic operations. After this practical, you should know how to manipulate the LEDs
+											on your STM board and use the pushbuttons to change their sequencing — all of which is done in
+											Assembly.</p>
+										<a class="button small icon solid fa-download" href="resources/practicals/EEE3096S_2025_Practical_2.pdf" download>Practical manual</a>
+									</div>
+								</div>
+
+								<!-- Practical 3 -->
+								<div class="row practical">
+									<div class="col-4 col-12-mobile">
+										<img class="practical-photo" src="images/practicals/practical-3.jpg" alt="Practical 3" />
+									</div>
+									<div class="col-8 col-12-mobile practical-body">
+										<h3>Practical 3</h3>
+										<p>In this practical, you will switch to the STM32F4, which offers greater processing power compared to
+											STM32F0 (See
+									 		the <a href="resources.html">Resources</a> page for datasheets).
+											This practical is more open ended and will involve benchmarking and comparison of the performance
+											between STM32F0 and STM32F4.</p>
+										<a class="button small icon solid fa-download" href="resources/practicals/EEE3096S_2025_Practical_3.pdf" download>Practical manual</a>
+									</div>
+								</div>
+
+								<!-- Practical 4 -->
+								<div class="row practical">
+									<div class="col-4 col-12-mobile">
+										<img class="practical-photo" src="images/practicals/practical-4.jpg" alt="Practical 4" />
+									</div>
+									<div class="col-8 col-12-mobile practical-body">
+										<h3>Practical 4</h3>
+										<p>This practical introduces you to DACs. A DAC converts a digital code into an analog
+											voltage or current. DACs have a
+											variety of uses, with the most important among them being converting digital signals to analog audio in just
+											about every single electronic audio system in the world. In this practical we will be making use of a quick and dirty DAC, an amplifier circuit, look-up tables
+											(LUTs) and then use a small speaker to produce audible sound. Volume control will be implemented using an
+											analog potentiometer and audio signals will be generated from lookup tables (LUTs) derived from .wav
+											files and three distinct waveforms.</p>
+										<a class="button small icon solid fa-download" href="resources/practicals/EEE3096S_2025_Practical_4.pdf" download>Practical manual</a>
+									</div>
+								</div>
 							</section>
 						</article>
 					</div>
